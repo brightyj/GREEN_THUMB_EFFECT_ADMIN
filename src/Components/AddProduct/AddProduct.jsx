@@ -28,7 +28,7 @@ const AddProduct = () => {
     try {
       let formData = new FormData();
       formData.append('product', image);
-      const response = await fetch('http://localhost:4000/upload', {
+      const response = await fetch('https://green-thumb-effect-backend.onrender.com/upload', {
         method: 'POST',
         headers: {
           Accept: 'application/json'
@@ -41,7 +41,7 @@ const AddProduct = () => {
         console.log(product);
 
         // Send the product data to addproduct endpoint
-        await fetch('http://localhost:4000/addproduct', {
+        await fetch('https://green-thumb-effect-backend.onrender.com/addproduct', {
           method: 'POST',
           headers: {
             Accept: 'application/json',

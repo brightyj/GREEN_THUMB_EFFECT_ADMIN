@@ -89,7 +89,10 @@ const AddProduct = () => {
       </div>
       <div className='addproduct-itemfield'>
         <label htmlFor='file-input'>
-          <img src={image ? URL.createObjectURL(image) : upload_area} alt='' className='addproduct-thumbnail-img' />
+        <label htmlFor='file-input'>
+  92:           <img src={image ? `https://green-thumb-effect-backend.onrender.com/upload/images/${req.file.filename}` : upload_area} alt='' className='addproduct-thumbnail-img' />
+
+  93          </label>
         </label>
         <input onChange={imageHandler} type='file' name='image' id='file-input' hidden />
       </div>

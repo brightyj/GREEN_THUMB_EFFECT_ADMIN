@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './AddProduct.css';
 import upload_area from '../../assets/upload_area.svg';
+import { BASE_URL } from '../../Constants';
 
 const AddProduct = () => {
   const [image, setImage] = useState(false);
@@ -28,7 +29,7 @@ const AddProduct = () => {
     try {
       let formData = new FormData();
       formData.append('product', image);
-      const response = await fetch('https://green-thumb-effect-backend.onrender.com/upload', {
+      const response = await fetch(`${BASE_URL}/upload `, {
         method: 'POST',
         headers: {
           Accept: 'application/json'
@@ -41,7 +42,7 @@ const AddProduct = () => {
         console.log(product);
 
         // Send the product data to addproduct endpoint
-        await fetch('https://green-thumb-effect-backend.onrender.com/addproduct', {
+        await fetch(`${BASE_URL}/addproduct`, {
           method: 'POST',
           headers: {
             Accept: 'application/json',

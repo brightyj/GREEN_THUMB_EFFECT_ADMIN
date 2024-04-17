@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './ListProduct.css';
 import cross_icon from '../../assets/cross_icon.png';
+import { BASE_URL } from '../../Constants';
 
 const ListProduct = () => {
   const [allproducts, setAllProducts] = useState([]);
 
   const fetchInfo = async () => {
     try {
-      const response = await fetch('https://green-thumb-effect-backend.onrender.com/allproducts');
+      const response =  await fetch(`${BASE_URL}/allproducts`);
       if (!response.ok) {
         throw new Error('Failed to fetch products');
       }
@@ -24,7 +25,7 @@ const ListProduct = () => {
 
   const removeProduct = async (id) => {
     try {
-      await fetch('https://green-thumb-effect-backend.onrender.com/removeproduct', {
+      await fetch(`${BASE_URL}/removeproduct`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',

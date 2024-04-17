@@ -29,7 +29,7 @@ const AddProduct = () => {
     try {
       let formData = new FormData();
       formData.append('product', image);
-      const response = await fetch(`${BASE_URL}/upload `, {
+      const response = await fetch(`${BASE_URL}/upload`, {
         method: 'POST',
         headers: {
           Accept: 'application/json'

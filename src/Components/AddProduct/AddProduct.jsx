@@ -28,7 +28,7 @@ const AddProduct = () => {
     try {
       let formData = new FormData();
       formData.append('product', image);
-      const response = await fetch('https://green-thumb-effect-backend.onrender.com/upload/images/${req.file.filename}', {
+      const response = await fetch('https://green-thumb-effect-backend.onrender.com/upload/images', {
         method: 'POST',
         headers: {
           Accept: 'application/json'
@@ -89,7 +89,7 @@ const AddProduct = () => {
       </div>
       <div className='addproduct-itemfield'>
         <label htmlFor='file-input'>
-          <img src={image || upload_area} alt='' className='addproduct-thumbnail-img' />
+        <img className="addproduct-thumbnail-img" src={!image?upload_area:URL.createObjectURL(image)} alt="" />
         </label>
         <input onChange={imageHandler} type='file' name='image' id='file-input' hidden />
       </div>
